@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sonith • Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <header>
+        <h1>Projects</h1>
+        <nav>
+            <a href="index.html">Index</a> |
+            <a href="portfolio.html">Portfolio</a> |
+            <a href="qualifications.html">Qualifications</a> |
+            <a href="service.html">Service</a> |
+            <a href="genai.html">GenAI</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Selected Work</h2>
+            <p>Below are a few projects that show my interests in backend systems, data, and practical automation.</p>
+        </section>
+
+        <article>
+            <h3>Tool Tracker</h3>
+            <p>
+                A simple app to view tool usage by user or system and record new assignments. Focused on
+                clean data model, predictable API endpoints, and fast lookup.
+            </p>
+            <ul>
+                <li>Built CRUD endpoints and basic auth.</li>
+                <li>Wrote queries to surface usage by user/tool.</li>
+                <li>Added import/export so admins can review offline.</li>
+            </ul>
+            <p><strong>Technologies:</strong> Node.js, Express, PostgreSQL</p>
+        </article>
+
+        <article>
+            <h3>Meeting Minutes Generator</h3>
+            <p>
+                Turns transcripts and attendee lists into structured minutes (HTML/PDF) using prompts and
+                templates; reduces manual editing.
+            </p>
+            <ul>
+                <li>Parsed inputs, segmented speakers, and generated sections (purpose, decisions, action items).</li>
+                <li>Produced downloadable HTML/PDF output.</li>
+                <li>Added lightweight review step for final edits.</li>
+            </ul>
+            <p><strong>Technologies:</strong> Python, Power Automate, Power BI</p>
+        </article>
+
+        <article>
+            <h3>PDF → Table Extractor</h3>
+            <p>
+                Extracts fields from PDFs and normalizes them into clean tables for analysis and export.
+            </p>
+            <ul>
+                <li>Used OCR for text capture, then rules to map to columns.</li>
+                <li>Handled noisy inputs and partial fields gracefully.</li>
+                <li>Exported CSV for downstream tools.</li>
+            </ul>
+            <p><strong>Technologies:</strong> Python, Azure OCR, FastAPI</p>
+        </article>
+
+        <!-- <article>
+            <h3>Magnetometer Stylus Tracking (Research)</h3>
+            <p>
+                Experiments toward estimating stylus position/orientation from magnetometer data using a
+                sensor grid and basic filters.
+            </p>
+            <ul>
+                <li>Streamed serial data from microcontroller; logged and cleaned samples.</li>
+                <li>Explored simple models and error metrics for positioning.</li>
+                <li>Planned pipeline for supervised calibration runs.</li>
+            </ul>
+            <p><strong>Technologies:</strong> C++, Python, Machine Learning</p>
+        </article> -->
+
+        <article>
+            <h3>Knobull</h3>
+            <p>
+                A student-focused search engine designed to integrate academic resources, with added
+                community features for collaboration and real-time discussions.
+            </p>
+            <ul>
+                <li>Implemented backend APIs for search and ranking.</li>
+                <li>Integrated MongoDB and Node.js for storing queries and results.</li>
+                <li>Added real-time chat support for student collaboration.</li>
+            </ul>
+            <p><strong>Technologies:</strong> React, Node.js, Express, MongoDB</p>
+        </article>
+
+        <article>
+            <h3>SkyScore</h3>
+            <p>
+                A social media and mapping app where users can track their travel history, share destinations,
+                and earn scores on an interactive leaderboard.
+            </p>
+            <ul>
+                <li>Developed cross-platform UI for travel check-ins and posts.</li>
+                <li>Created interactive maps to visualize user journeys.</li>
+                <li>Implemented scoring and leaderboard system for engagement.</li>
+            </ul>
+            <p><strong>Technologies:</strong> React Native, JavaScript, PostgreSQL</p>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Sonith</p>
+    </footer>
+
+</body>
+
+</html>
