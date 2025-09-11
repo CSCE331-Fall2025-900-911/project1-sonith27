@@ -5,65 +5,63 @@
     <meta charset="utf-8">
     <title>Sonith • Landing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="theme" rel="stylesheet" href="style_a.css">
+    <script defer src="toggle.js"></script>
 </head>
 
 <body>
-
-    <!-- Header / Nav -->
-    <header>
-        <h1>SG</h1>
-        <nav>
-            <a href="index.html">Index</a> |
-            <a href="portfolio.html">Portfolio</a> |
-            <a href="qualifications.html">Qualifications</a> |
-            <a href="service.html">Service</a> |
+    <header class="site-header">
+        <div class="brand">SG</div>
+        <nav class="nav">
+            <a href="index.html" aria-current="page">Index</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="qualifications.html">Qualifications</a>
+            <a href="service.html">Service</a>
             <a href="genai.html">GenAI</a>
         </nav>
+        <button id="styleToggle" class="toggle">Toggle</button>
     </header>
 
-    <main>
-
-        <!-- About Me -->
-        <section>
-            <h2>About Me</h2>
-            <!-- Profile Image -->
-            <img src="profile.jpg" width="250" height="250">
-            
-            <p>
-                I’m Sonith, a Computer Science student at Texas A&amp;M University with an interest in artificial
-                intelligence, machine learning, and backend development. I enjoy building systems that work with
-                data and create efficient solutions to real problems, and I look forward to applying these skills
-                in my future career as a software engineer. This past summer I interned at Leidos, where I worked
-                on developing automation solutions and building applications that improved efficiency for project
-                teams. This experience strengthened my technical foundation and gave me insight into how software
-                can create real impact in professional environments.
-            </p>
+    <main class="container">
+        <section class="about">
+            <figure class="about-photo">
+                <img src="profile.jpg" width="280" height="280" alt="Photo of Sonith">
+            </figure>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I’m Sonith, a Computer Science student at Texas A&amp;M University with an interest in artificial
+                    intelligence, machine learning, and backend development. I enjoy building systems that work with
+                    data and create efficient solutions to real problems, and I look forward to applying these skills in
+                    my future career as a software engineer. This past summer I interned at Leidos, where I worked on
+                    developing automation solutions and building applications that improved efficiency for project
+                    teams. This experience strengthened my technical foundation and gave me insight into how software
+                    can create real impact in professional environments.</p>
+            </div>
         </section>
 
-        <!-- Interests -->
-        <section>
+        <section class="interests">
             <h2>Interests</h2>
-            <p>
-                Outside of computer science, I like to keep life full of different experiences. I mainly enjoy travelling, which has taken me
-                to Costa Rica, Hawaii, Turkey, Thailand, and New York, each place leaving me with new perspectives and
-                memorable moments. Music is always part of my day, whether I’m studying or just relaxing. I also enjoy
-                watching anime for its creativity and storytelling, and I make time for the gym to stay active and
-                disciplined. 
-            </p>
+            <div class="interest-grid">
+                <figure><img src="https://via.placeholder.com/320x220" alt="Interest 1"></figure>
+                <figure><img src="https://via.placeholder.com/320x220" alt="Interest 2"></figure>
+                <figure><img src="https://via.placeholder.com/320x220" alt="Interest 3"></figure>
+            </div>
+            <p class="interest-copy">Outside of computer science, I mainly enjoy travelling, which has taken me to Costa
+                Rica, Hawaii, Turkey, Thailand, and New York. I also like listening to music, watching anime, and going
+                to the gym.</p>
         </section>
 
-        <!-- External Links -->
-        <section aria-label="Links">
-            <a href="https://github.com/Sonithg" target="_blank" rel="noopener">GitHub</a> |
-            <a href="https://www.linkedin.com/in/sonith-guduru/" target="_blank" rel="noopener">LinkedIn</a> |
-            <a href="https://leetcode.com/u/sonithg/" target="_blank" rel="noopener">LeetCode</a>
+        <section class="links" aria-label="Links">
+            <a class="link-pill" href="https://github.com/Sonithg" target="_blank" rel="noopener">GitHub</a>
+            <a class="link-pill" href="https://www.linkedin.com/in/sonith-guduru/" target="_blank"
+                rel="noopener">LinkedIn</a>
+            <a class="link-pill" href="https://leetcode.com/u/sonithg/" target="_blank" rel="noopener">LeetCode</a>
         </section>
-
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>© 2025 Sonith</p>
     </footer>
-
 </body>
+
 </html>

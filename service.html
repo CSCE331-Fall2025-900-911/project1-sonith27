@@ -5,66 +5,83 @@
     <meta charset="utf-8">
     <title>Sonith • Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="theme" rel="stylesheet" href="style_a.css">
+    <script defer src="toggle.js"></script>
 </head>
 
 <body>
-
-    <header>
-        <h1>Service</h1>
-        <nav>
-            <a href="index.html">Index</a> |
-            <a href="portfolio.html">Portfolio</a> |
-            <a href="qualifications.html">Qualifications</a> |
-            <a href="service.html">Service</a> |
+    <header class="site-header">
+        <div class="brand">SG</div>
+        <nav class="nav">
+            <a href="index.html">Index</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="qualifications.html">Qualifications</a>
+            <a href="service.html" aria-current="page">Service</a>
             <a href="genai.html">GenAI</a>
         </nav>
+        <button id="styleToggle" class="toggle">Toggle</button>
     </header>
 
-    <main>
+    <main class="container">
+        <h1 class="page-title">Service</h1>
 
-        <section>
-            <h2>Community and Service</h2>
-            <p>
-                Giving back to the community has been an important part of my life. Through Boy Scouts and other
-                volunteer opportunities, I’ve been able to contribute to projects that directly benefit people
-                and strengthen communities.
-            </p>
+        <section class="timeline">
+            <div class="tl-item">
+                <div class="tl-bar"></div>
+                <div class="tl-content">
+                    <h3>Boy Scouts: Community Garden</h3>
+                    <p>Designed and built a garden for a local church to support community food programs.</p>
+                </div>
+                <figure class="tl-photo">
+                    <img src="https://via.placeholder.com/120" alt="Garden">
+                </figure>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-bar"></div>
+                <div class="tl-content">
+                    <h3>Canned Food Drive</h3>
+                    <p>Coordinated collection and delivery of donations to local organizations.</p>
+                </div>
+                <figure class="tl-photo">
+                    <img src="https://via.placeholder.com/120" alt="Food Drive">
+                </figure>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-bar"></div>
+                <div class="tl-content">
+                    <h3>Building Sheds</h3>
+                    <p>Assisted in constructing storage sheds for community spaces and events.</p>
+                </div>
+                <figure class="tl-photo">
+                    <img src="https://via.placeholder.com/120" alt="Sheds">
+                </figure>
+            </div>
+
+            <div class="tl-item">
+                <div class="tl-bar"></div>
+                <div class="tl-content">
+                    <h3>Park Clean-ups</h3>
+                    <p>Participated in quarterly clean-ups to keep local parks maintained and accessible.</p>
+                </div>
+                <figure class="tl-photo">
+                    <img src="https://via.placeholder.com/120" alt="Parks">
+                </figure>
+            </div>
         </section>
 
-        <article>
-            <h3>Boy Scouts Service Projects</h3>
-            <p>
-                During my years in Boy Scouts, I participated in a variety of service projects, including creating
-                a community garden for a local church, organizing a canned food drive to support families in need,
-                and helping build sheds for storage at community spaces. These projects taught me teamwork,
-                leadership, and the value of sustained service.
-            </p>
-        </article>
-
-        <article>
-            <h3>Additional Community Service</h3>
-            <p>
-                Beyond Boy Scouts, I’ve taken part in other service activities such as local park clean-ups,
-                assisting at charity fundraising events, and tutoring younger students in basic computer skills.
-                Each experience gave me a chance to make a positive impact while learning from the people I worked with.
-            </p>
-        </article>
-
-        <article>
-            <h3>Future Contributions</h3>
-            <p>
-                Looking ahead, I am interested in teaching workshops on software development and contributing
-                to open-source projects. I see these as opportunities to support learners while staying engaged
-                with real-world challenges in technology.
-            </p>
-        </article>
-
+        <section class="links" aria-label="Links">
+            <a class="link-pill" href="https://github.com/Sonithg" target="_blank" rel="noopener">GitHub</a>
+            <a class="link-pill" href="https://www.linkedin.com/in/sonith-guduru/" target="_blank"
+                rel="noopener">LinkedIn</a>
+            <a class="link-pill" href="https://leetcode.com/u/sonithg/" target="_blank" rel="noopener">LeetCode</a>
+        </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>© 2025 Sonith</p>
     </footer>
-
 </body>
 
 </html>

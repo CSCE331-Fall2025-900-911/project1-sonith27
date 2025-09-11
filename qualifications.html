@@ -5,70 +5,86 @@
     <meta charset="utf-8">
     <title>Sonith • Qualifications</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="theme" rel="stylesheet" href="style_a.css">
+    <script defer src="toggle.js"></script>
 </head>
 
 <body>
-
-    <header>
-        <h1>Qualifications</h1>
-        <nav>
-            <a href="index.html">Index</a> |
-            <a href="portfolio.html">Portfolio</a> |
-            <a href="qualifications.html">Qualifications</a> |
-            <a href="service.html">Service</a> |
+    <header class="site-header">
+        <div class="brand">SG</div>
+        <nav class="nav">
+            <a href="index.html">Index</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="qualifications.html" aria-current="page">Qualifications</a>
+            <a href="service.html">Service</a>
             <a href="genai.html">GenAI</a>
         </nav>
+        <button id="styleToggle" class="toggle">Toggle</button>
     </header>
 
-    <main>
+    <main class="container">
+        <section class="qual-grid">
+            <div class="resume-panel">
+                <h2>Resume</h2>
+                <div class="resume-box">
+                    <iframe src="https://drive.google.com/file/d/1uPmmIzjpk41p7eYIcgI2urkHz2Sj0N1W/preview"
+                        title="Resume"></iframe>
+                </div>
+                <a class="btn wide"
+                    href="https://drive.google.com/uc?export=download&id=1uPmmIzjpk41p7eYIcgI2urkHz2Sj0N1W">Download</a>
+            </div>
 
-        <!-- Resume -->
-        <section>
-            <h2>Resume</h2>
-            <iframe src="https://drive.google.com/file/d/1uPmmIzjpk41p7eYIcgI2urkHz2Sj0N1W/preview" width="100%"
-                height="500" title="Resume PDF"></iframe>
-            <p>
-                <a href="https://drive.google.com/uc?export=download&id=1uPmmIzjpk41p7eYIcgI2urkHz2Sj0N1W">
-                    Download Resume (PDF)
-                </a>
-            </p>
+            <aside class="skills-panel">
+                <h2>Skills</h2>
+                <div class="skills-list">
+                    <span class="skill-chip">Python</span>
+                    <span class="skill-chip">Java</span>
+                    <span class="skill-chip">JavaScript</span>
+                    <span class="skill-chip">C++</span>
+                    <span class="skill-chip">SQL</span>
+                    <span class="skill-chip">React</span>
+                    <span class="skill-chip">Node.js</span>
+                    <span class="skill-chip">FastAPI</span>
+                    <span class="skill-chip">Spring Boot</span>
+                    <span class="skill-chip">PostgreSQL</span>
+                    <span class="skill-chip">Docker</span>
+                    <span class="skill-chip">Kubernetes</span>
+                    <span class="skill-chip">Azure</span>
+                    <span class="skill-chip">Linux</span>
+                    <span class="skill-chip">Git</span>
+                </div>
+            </aside>
         </section>
 
-        <!-- Technical Skills -->
-        <section>
-            <h2>Technical Skills</h2>
-            <h3>Programming Languages</h3>
-            <p>Python, Java, JavaScript, C++, SQL, R, HTML/CSS, HDL, Haskell</p>
-
-            <h3>Frameworks & Libraries</h3>
-            <p>React, Node.js, Express.js, React Native, NumPy, FastAPI, Spring Boot, SvelteKit</p>
-
-            <h3>Developer Tools</h3>
-            <p>Azure, Git, Postman, Linux, PostgreSQL, Jenkins, Docker, Kubernetes</p>
-
-            <h3>Concepts</h3>
-            <p>Artificial Intelligence, Machine Learning, RAG, RESTful APIs, Cloud Computing, Backend Development,
-                Agile, CI/CD, Microservices, Containerization, Web Scraping</p>
+        <section class="interests-block">
+            <h2>Areas of Interest</h2>
+            <div class="interest-grid">
+                <article class="interest-card">
+                    <h3>AI/ML</h3>
+                    <p>Learning models, data pipelines, and practical applications that improve workflows.</p>
+                </article>
+                <article class="interest-card">
+                    <h3>Backend Systems</h3>
+                    <p>APIs, databases, and services focused on reliability, scalability, and clean design.</p>
+                </article>
+                <article class="interest-card">
+                    <h3>Automation</h3>
+                    <p>Tools that reduce repetitive work, integrate services, and surface useful insights.</p>
+                </article>
+            </div>
         </section>
 
-        <!-- Technical Interests -->
-        <section>
-            <h2>Technical Areas of Interest</h2>
-            <p>
-                I’m especially interested in artificial intelligence, machine learning, and backend development.
-                I enjoy building reliable systems that work with data, automate repetitive tasks, and improve
-                workflows. I want to deepen my knowledge in database modeling, scalable APIs, and the integration
-                of ML pipelines into real applications. Long term, my goal is to create software that is both
-                technically strong and user-friendly, bridging the gap between raw data and clear solutions.
-            </p>
+        <section class="links" aria-label="Links">
+            <a class="link-pill" href="https://github.com/Sonithg" target="_blank" rel="noopener">GitHub</a>
+            <a class="link-pill" href="https://www.linkedin.com/in/sonith-guduru/" target="_blank"
+                rel="noopener">LinkedIn</a>
+            <a class="link-pill" href="https://leetcode.com/u/sonithg/" target="_blank" rel="noopener">LeetCode</a>
         </section>
-
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>© 2025 Sonith</p>
     </footer>
-
 </body>
 
 </html>
