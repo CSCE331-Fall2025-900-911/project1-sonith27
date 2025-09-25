@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>GenAI — Sonith Guduru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Inline-only CSS per assignment -->
+    <style>
+        :root {
+            /* Teal-forward palette */
+            --bg-a: #051e22;
+            --bg-b: #073037;
+            --bg-c: #0a3a41;
+            --card: #0b1f25ee;
+            --ring: #185e64;
+            --ink: #e6fbff;
+            --muted: #b7d6d6;
+            --hot: #22d3ee;
+            /* cyan accent for small pops */
+            --lime: #34d399;
+            /* teal-green accent */
+            --sky: #5fd3cf;
+            /* soft aqua for gradients */
+            --amber: #2dd4bf;
+            /* used for small dots */
+            --vio: #14b8a6;
+            /* teal */
+            --shadow: 0 14px 40px rgba(0, 0, 0, .45);
+            --rad: 20px;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0
+        }
+
+        body {
+            font-family: ui-rounded, system-ui, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(1200px 600px at 0% -20%, #0e4249 0%, transparent 60%),
+                radial-gradient(900px 900px at 120% 10%, #0f2f33 0%, transparent 55%),
+                linear-gradient(135deg, var(--bg-a), var(--bg-b) 50%, var(--bg-c));
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        /* Header with internal links to your other pages */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            background: linear-gradient(180deg, rgba(5, 24, 27, .85), rgba(5, 24, 27, .35));
+            border-bottom: 1px solid #0f5257;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 20px;
+        }
+
+        .nav a {
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            border: 1px solid var(--ring);
+            color: #dff9fb;
+            background: linear-gradient(180deg, rgba(9, 40, 45, .9), rgba(7, 33, 37, .9));
+        }
+
+        .nav a[aria-current="page"] {
+            box-shadow: 0 0 0 3px rgba(47, 196, 186, .20) inset;
+            border-color: #33c3ba;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 28px auto 80px;
+            padding: 0 20px
+        }
+
+        .section {
+            margin-top: 40px
+        }
+
+        .card {
+            background: linear-gradient(160deg, #0c2328, #0a1e22);
+            border: 1px solid #134a50;
+            border-radius: var(--rad);
+            box-shadow: var(--shadow);
+            padding: 18px
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            line-height: 1.06;
+            margin: .35em 0
+        }
+
+        h2 {
+            font-size: clamp(22px, 3vw, 32px);
+            margin: 0 0 14px
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.08rem;
+            max-width: 60ch
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px
+        }
+
+        @media (max-width: 900px) {
+
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .kv {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 14px;
+            border: 1px dashed #1b5a60;
+            border-radius: 12px;
+            color: #d0f6f4
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #0c2529;
+            border: 1px solid #1a5a60;
+            color: #d0f6f4;
+            font-size: .9rem;
+            margin-right: 8px
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #1a5a60;
+            padding: 8px 12px;
+            border-radius: 999px;
+            color: var(--muted);
+            margin: 4px 6px 0 0
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 24px
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(var(--sky), var(--hot));
+        }
+
+        .t-item {
+            position: relative;
+            margin: 14px 0;
+            padding-left: 8px
+        }
+
+        .t-item::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--amber), var(--vio));
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, .18);
+        }
+
+        /* Prompt boxes */
+        .prompt-box {
+            margin-top: 14px
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 140px;
+            resize: vertical;
+            color: #e7fffd;
+            background: #092125;
+            border: 1px solid #1a4f54;
+            border-radius: 12px;
+            padding: 12px;
+            line-height: 1.4;
+            box-shadow: inset 0 0 0 2px rgba(47, 196, 186, .08);
+        }
+
+        footer {
+            margin: 40px 0 16px;
+            color: var(--muted);
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Internal links to OTHER PAGES -->
+    <header>
+        <nav class="nav">
+            <a href="index.html">Index</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="qualifications.html">Qualifications</a>
+            <a href="service.html">Service</a>
+            <a href="genai.html" aria-current="page">GenAI</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- HERO -->
+        <section>
+            <h1>Hi, I’m Sonith — I build AI-powered, full-stack products that ship.</h1>
+            <p class="subtitle">
+                From LLM meeting-minutes automation to magnetometer-based motion tracking and React-Native social apps,
+                I love turning complex systems into polished experiences. I’m growing across backend, ML, and product
+                engineering—
+                while keeping things fast, readable, and reliable.
+            </p>
+            <div class="grid-3" style="margin-top:18px">
+                <div class="card">
+                    <div class="kv"><strong>Leidos</strong><span>Software Developer Intern (2025)</span></div>
+                    <div class="kv"><strong>Ensi AI</strong><span>Software Engineer Intern (2024)</span></div>
+                    <div class="kv"><strong>Snapblocs</strong><span>Software Engineer Intern (2023)</span></div>
+                </div>
+                <div class="card">
+                    <div class="kv"><strong>Focus</strong><span>AI • Full-Stack • Cloud</span></div>
+                    <div class="kv"><strong>GPA</strong><span>3.7/4.0</span></div>
+                    <div class="kv"><strong>Interests</strong><span>RAG • ML • Systems</span></div>
+                </div>
+                <div class="card">
+                    <div class="kv"><strong>Languages</strong><span>Python, Java, JS/TS, C++, SQL</span></div>
+                    <div class="kv"><strong>Stacks</strong><span>React, Node, Spring, FastAPI</span></div>
+                    <div class="kv"><strong>Cloud</strong><span>AWS • Azure • Docker • K8s</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT HIGHLIGHTS -->
+        <section class="section">
+            <h2>Project Highlights</h2>
+            <div class="grid-3">
+                <article class="card">
+                    <h3 style="margin:6px 0 6px">Knobull — Academic Search</h3>
+                    <p style="color:var(--muted)">
+                        React + Node + Elasticsearch with Semantic Scholar. Tuned analyzers/queries to cut response time
+                        ~40% and boost ranking.
+                    </p>
+                    <span class="tag">React</span><span class="tag">Node</span><span
+                        class="tag">Elasticsearch</span><span class="tag">PostgreSQL</span>
+                </article>
+                <article class="card">
+                    <h3 style="margin:6px 0 6px">LLM Minutes Generator</h3>
+                    <p style="color:var(--muted)">
+                        Backend service that transforms meeting data into structured minutes—saving 1–2 hours and
+                        standardizing formatting for teams.
+                    </p>
+                    <span class="tag">LLMs</span><span class="tag">Python</span><span class="tag">FastAPI</span><span
+                        class="tag">Docs Automation</span>
+                </article>
+                <article class="card">
+                    <h3 style="margin:6px 0 6px">SkyScore — Social Travel</h3>
+                    <p style="color:var(--muted)">
+                        React Native app with interactive maps, pins, and leaderboards. Led Jenkins CI/CD for smooth
+                        multi-platform deployment.
+                    </p>
+                    <span class="tag">React Native</span><span class="tag">Maps</span><span class="tag">CI/CD</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE TIMELINE & FAST FACTS -->
+        <section class="section">
+            <h2>Experience Timeline</h2>
+            <div class="grid-2">
+                <div class="card timeline">
+                    <div class="t-item">
+                        <strong>Leidos — Software Developer Intern</strong> · May–Aug 2025
+                        <div style="color:var(--muted)">React/Node departure forms (conditional fields), tool tracker
+                            dashboards, and LLM minutes automation.</div>
+                    </div>
+                    <div class="t-item">
+                        <strong>Texas A&amp;M — Undergraduate Research</strong> · Jan 2025–Present
+                        <div style="color:var(--muted)">Magnetometer-based stylus tracking in Python; ML pipeline to
+                            improve accuracy ~30%.</div>
+                    </div>
+                    <div class="t-item">
+                        <strong>Ensi AI — Software Engineer Intern</strong> · Jun–Aug 2024
+                        <div style="color:var(--muted)">SvelteKit + Django pipeline with Azure OCR + FastAPI; reduced
+                            manual processing by ~80%.</div>
+                    </div>
+                    <div class="t-item">
+                        <strong>Snapblocs — Software Engineer Intern</strong> · Jun–Aug 2023
+                        <div style="color:var(--muted)">Spring Boot + PostgreSQL for multi-cloud cred mgmt; JSON diff
+                            utilities for reliable changelogs.</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="kv"><strong>Education</strong><span>BS CS, Texas A&amp;M (Cybersecurity minor)</span>
+                    </div>
+                    <div class="kv"><strong>Coursework</strong><span>DSA, Discrete, PL, DB, Org, Linear Algebra,
+                            Stats</span></div>
+                    <div class="kv"><strong>Recognition</strong><span>Dean’s Honor Roll • Distinguished Student</span>
+                    </div>
+                    <div class="kv"><strong>Toolbelt</strong><span>AWS, Azure, Docker, K8s, Git, Jenkins</span></div>
+                    <div class="kv"><strong>Concepts</strong><span>AI/ML, RAG, REST, Microservices, Web Scraping</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS STRIP -->
+        <section class="section">
+            <h2>What I Work With</h2>
+            <div class="card">
+                <div>
+                    <span class="chip">Python</span><span class="chip">Java</span><span
+                        class="chip">JavaScript/TypeScript</span>
+                    <span class="chip">C++</span><span class="chip">SQL</span><span class="chip">React</span>
+                    <span class="chip">Node</span><span class="chip">Spring Boot</span><span class="chip">FastAPI</span>
+                    <span class="chip">PostgreSQL</span><span class="chip">Docker</span><span
+                        class="chip">Kubernetes</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUES -->
+        <section class="section">
+            <h2>Builder Values</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3 style="margin:6px 0">Ship &gt; Perfect</h3>
+                    <p style="color:var(--muted)">Deliver the smallest valuable slice, gather feedback, and iterate with
+                        intent.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin:6px 0">Humans First</h3>
+                    <p style="color:var(--muted)">Design for clarity and speed—great engineering feels simple to the end
+                        user.</p>
+                </div>
+                <div class="card">
+                    <h3 style="margin:6px 0">Systems Thinking</h3>
+                    <p style="color:var(--muted)">Own the pipeline end-to-end: data, models, services, and product
+                        surface.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SMALL BOX WITH YOUR ORIGINAL ASSIGNMENT PROMPT (unchanged) -->
+        <section class="section">
+            <h2>Original Assignment Prompt</h2>
+            <div class="card prompt-box">
+                <textarea readonly>
+I am making a GenAI page, a page for my website that is fully generated by AI. I want it to be unique and eye-catching, to make sure it stands out. Make it about me and figure out the details for what to fill it with using my resume, which I have attached. Have different sections and make it look detailed. Give the html code for genAI.html and have any required css within the file so I don't have to make any changes to my pre-existing css files. Make it teal thene.
+        </textarea>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © <span id="y">2025</span> Sonith Guduru • Crafted with Generative AI (inline CSS only)
+    </footer>
+
+    <script>
+        document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

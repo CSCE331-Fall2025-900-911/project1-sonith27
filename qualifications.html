@@ -7,6 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link id="theme" rel="stylesheet" href="style_a.css">
     <script defer src="toggle.js"></script>
+    <style>
+        /* Extra styling for skill links */
+        .skills-list a {
+            color: var(--accent, #3b82f6);
+            /* fallback if --accent not defined */
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .skills-list a:hover {
+            color: var(--hot, #a855f7);
+            /* fallback hover color */
+        }
+    </style>
 </head>
 
 <body>
@@ -37,21 +53,25 @@
             <aside class="skills-panel">
                 <h2>Skills</h2>
                 <div class="skills-list">
-                    <span class="skill-chip">Python</span>
-                    <span class="skill-chip">Java</span>
-                    <span class="skill-chip">JavaScript</span>
-                    <span class="skill-chip">C++</span>
-                    <span class="skill-chip">SQL</span>
-                    <span class="skill-chip">React</span>
-                    <span class="skill-chip">Node.js</span>
-                    <span class="skill-chip">FastAPI</span>
-                    <span class="skill-chip">Spring Boot</span>
-                    <span class="skill-chip">PostgreSQL</span>
-                    <span class="skill-chip">Docker</span>
-                    <span class="skill-chip">Kubernetes</span>
-                    <span class="skill-chip">Azure</span>
-                    <span class="skill-chip">Linux</span>
-                    <span class="skill-chip">Git</span>
+                    <a class="skill-chip" href="https://www.python.org/" target="_blank" rel="noopener">Python</a>
+                    <a class="skill-chip" href="https://www.oracle.com/java/" target="_blank" rel="noopener">Java</a>
+                    <a class="skill-chip" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
+                        rel="noopener">JavaScript</a>
+                    <a class="skill-chip" href="https://isocpp.org/" target="_blank" rel="noopener">C++</a>
+                    <a class="skill-chip" href="https://www.mysql.com/" target="_blank" rel="noopener">SQL</a>
+                    <a class="skill-chip" href="https://react.dev/" target="_blank" rel="noopener">React</a>
+                    <a class="skill-chip" href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a>
+                    <a class="skill-chip" href="https://fastapi.tiangolo.com/" target="_blank"
+                        rel="noopener">FastAPI</a>
+                    <a class="skill-chip" href="https://spring.io/projects/spring-boot" target="_blank"
+                        rel="noopener">Spring Boot</a>
+                    <a class="skill-chip" href="https://www.postgresql.org/" target="_blank"
+                        rel="noopener">PostgreSQL</a>
+                    <a class="skill-chip" href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a>
+                    <a class="skill-chip" href="https://kubernetes.io/" target="_blank" rel="noopener">Kubernetes</a>
+                    <a class="skill-chip" href="https://azure.microsoft.com/" target="_blank" rel="noopener">Azure</a>
+                    <a class="skill-chip" href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>
+                    <a class="skill-chip" href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>
                 </div>
             </aside>
         </section>
@@ -74,16 +94,35 @@
             </div>
         </section>
 
-        <section class="links" aria-label="Links">
-            <a class="link-pill" href="https://github.com/Sonithg" target="_blank" rel="noopener">GitHub</a>
-            <a class="link-pill" href="https://www.linkedin.com/in/sonith-guduru/" target="_blank"
-                rel="noopener">LinkedIn</a>
-            <a class="link-pill" href="https://leetcode.com/u/sonithg/" target="_blank" rel="noopener">LeetCode</a>
+        <section class="interests-block">
+            <h2>Why I Chose Computer Science</h2>
+            <p>When I was a kid, I always enjoyed solving puzzles and challenges. I liked spending time with Rubik’s
+                cubes and brain teasers, always trying to find the solution. I also liked making things with my
+                hands—drawing, painting, and folding origami. All of those activities gave me the same type of
+                satisfaction: starting with something small and slowly building it into something complete. When I
+                discovered computer science, I realized it gave me that same feeling. Coding lets me solve problems step
+                by step, but it also lets me be creative and make something new that people can actually use.</p>
+            <p>As I’ve gone deeper into CS, I’ve been able to use both my problem-solving and creative sides. In school,
+                I’ve learned the fundamentals through courses in programming, data structures, and databases. Outside of
+                class, I’ve worked on projects and internships where I got to apply what I learned. For example, I built
+                tools that saved people time by automating tasks, created systems that organized messy data into
+                something useful, and worked on research using sensors and Python to track motion. Each of these
+                experiences showed me how computer science can take an idea and turn it into something real.</p>
+            <p>Choosing computer science felt natural to me. It combines logic with creativity in a way that matches the
+                things I’ve always enjoyed since I was younger. I like that I can use it to solve problems, make things
+                more efficient, and also create projects that people find helpful. CS gives me the chance to build,
+                improve, and innovate, and that’s why I’m excited to keep growing in this field.</p>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>© 2025 Sonith</p>
+        <div class="footer-links">
+            <a class="link-pill" href="https://github.com/Sonithg" target="_blank" rel="noopener">GitHub</a>
+            <a class="link-pill" href="https://www.linkedin.com/in/sonith-guduru/" target="_blank"
+                rel="noopener">LinkedIn</a>
+            <a class="link-pill" href="https://leetcode.com/u/sonithg/" target="_blank" rel="noopener">LeetCode</a>
+        </div>
+        <p class="copyright">© 2025 Sonith</p>
     </footer>
 </body>
 
